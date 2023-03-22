@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 30px;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 20px;
+  }
+}
+.header__img {
+  width: 140px;
+  height: 45px;
+}
+@media screen and (max-width: 768px) {
+  .header__img {
+    width: 110px;
+    height: 35px;
+  }
+}/*# sourceMappingURL=Header.css.map */

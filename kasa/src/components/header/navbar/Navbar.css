@@ -1,0 +1,21 @@
+a {
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
+@media screen and (max-width: 768px) {
+  .nav {
+    width: 130px;
+  }
+}
+.nav__link {
+  color: red;
+}
+
+.active_menu {
+  text-decoration: underline;
+}/*# sourceMappingURL=Navbar.css.map */
