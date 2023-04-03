@@ -35,7 +35,7 @@ app.use(express.json());
 
 app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', userRoutes);
-//dit à express de gérer la ressource images de manière statique:  __dirname: répértoire du serveur
+//dit à express de gérer la ressource images de manière statique:  __dirname: répertoire du serveur
 //auquel on concatène "images"  pour obtenir le chemin complet
 app.use('/images', express.static(path.join(__dirname, 'images')));
 

@@ -31,7 +31,6 @@ exports.login = (req, res, next) => {
           .json({ message: 'Paire identifiant/mot de passe incorrecte' });
       } else {
         //si email ok, comparer le mot de passe entré par l'utilisateur avec le hash enregistré
-        console.log(req.body.password, user.password);
         bcrypt
           .compare(req.body.password, user.password)
           .then((valid) => {
@@ -42,7 +41,6 @@ exports.login = (req, res, next) => {
                 .json({ message: 'Paire identifiant/mot de passe incorrecte' });
             } else {
               //si ok, réponse 200 contenant l'ID utilisateur et un token
-              console.log('dddddd', typeof user._id, user._id);
               res.status(200).json({
                 //le front qui récupère un objet avec userId et le token
                 userId: user._id,

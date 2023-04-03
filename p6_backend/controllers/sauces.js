@@ -16,7 +16,9 @@ exports.createSauce = (req, res, next) => {
     userId: req.auth.userId,
     //génération de l'URL de l'image: propriété protocol de req, le nom d'hôte du serveur,
     //le dossier images, le nom de fichier donné par multer
-    imageUrl: `${req.protocol}://${req.get('host')}/images${req.file.filename}`,
+    imageUrl: `${req.protocol}://${req.get('host')}/images/${
+      req.file.filename
+    }`,
   });
   sauce
     .save()
@@ -40,7 +42,7 @@ exports.modifySauce = (req, res, next) => {
         //à quoi sert le spread ici ?
         ...JSON.parse(req.body.sauce),
         //
-        imageUrl: `${req.protocol}://${req.get('host')}/images${
+        imageUrl: `${req.protocol}://${req.get('host')}/images/${
           req.file.filename
         }`,
       }
@@ -102,13 +104,9 @@ exports.getOneSauce = (req, res, next) => {
 };
 
 exports.getAllSauces = (req, res, next) => {
-  console.log('ddd');
-
   Sauce.find({})
     //envoi du tableau de toutes les sauces
     .then((sauces) => {
-      console.log(sauces);
-
       res.status(200).json(sauces);
     })
     .catch((error) => res.status(400).json({ error }));
